@@ -12,6 +12,7 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -30,6 +31,12 @@ public class ThiSinhBUS {
                 a.getID(), a.getHoTen(), a.getDiaChi(), a.getNoiSinh(), a.getCmtnd(), a.getGioiTinh(), ngaySinh, a.getSoDienThoai(), a.getEmail(), a.getUuTien()
             });
         }
+    }
+    
+    public static ArrayList<ThiSinh> getAllThiSinhsBaoCao() throws SQLException{        
+        String query = "{ call get_all_thisinh()}";
+        ArrayList<ThiSinh> li = DAL.ThiSinhDAL.getAllThiSinhs(query);
+        return li;
     }
 
     public static void insertThiSinh(ThiSinh a){
@@ -85,6 +92,28 @@ public class ThiSinhBUS {
                 a.getID(), a.getHoTen(), a.getDiaChi(), a.getNoiSinh(), a.getCmtnd(), a.getGioiTinh(), ngaySinh, a.getSoDienThoai(), a.getEmail(), a.getUuTien()
             });
         }
+    }
+    
+     public static ArrayList<ThiSinh> searchThiSinhBaoCao(JTextField jId, JComboBox bGioiTinh, JComboBox bNoiSinh, JComboBox bUuTien){
+        String query = "select * from thisinh where ID_ThiSinh like concat(\"%\",?,\"%\") and   GioiTinh like concat(\"%\",?,\"%\") and NoiSinh like concat(\"%\",?,\"%\") and UuTien_ID like concat(\"%\",?,\"%\")";
+        String gioiTinh = "";
+        if(!bGioiTinh.getSelectedItem().toString().equals("<Tất Cả>")){
+            gioiTinh = bGioiTinh.getSelectedItem().toString();
+        }
+        String noiSinh = "";
+        if(!bNoiSinh.getSelectedItem().toString().equals("<Tất Cả>")){
+            noiSinh = bNoiSinh.getSelectedItem().toString();
+        }
+        String uuTien = "";
+        if(!bUuTien.getSelectedItem().toString().equals("<Tất Cả>")){
+            uuTien = bUuTien.getSelectedItem().toString();
+        }
+        String id = "";
+        if(jId.getText() != null && !"".equals(jId.getText())){
+            id = jId.getText().trim();
+        }
+        ArrayList<ThiSinh> li = DAL.ThiSinhDAL.searchThiSinhsBaoCao(id,gioiTinh, noiSinh, uuTien, query);
+        return li;
     }
     
     public static ThiSinh findById(String id){

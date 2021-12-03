@@ -17,11 +17,13 @@ import javax.swing.JPanel;
  * @author Audd
  */
 public class MainFormAdmin extends javax.swing.JFrame {
-    static int check = 0, check1 = 0, check2 = 0;
+    static int check = 0, check1 = 0, check2 = 0,check3 = 0,check4 = 0;
+    static String userLogin = "";
     /**
      * Creates new form MainFormAdmin
      */
-    public MainFormAdmin() {
+    public MainFormAdmin(String username) {
+        userLogin = username;
         initComponents();
     }
 
@@ -53,6 +55,10 @@ public class MainFormAdmin extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         menuItem7 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
+        menuItem8 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        menuItem9 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
         logopane = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -208,24 +214,79 @@ public class MainFormAdmin extends javax.swing.JFrame {
         jLabel8.setText("Thoát");
         menuItem7.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
+        menuItem8.setBackground(new java.awt.Color(204, 204, 255));
+        menuItem8.setPreferredSize(new java.awt.Dimension(141, 62));
+        menuItem8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuItem8MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                menuItem8MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                menuItem8MouseExited(evt);
+            }
+        });
+        menuItem8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8-report-32.png"))); // NOI18N
+        jLabel13.setText("Báo cáo hô sơ thí sinh");
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel13MouseEntered(evt);
+            }
+        });
+        menuItem8.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, -1, -1));
+
+        menuItem9.setBackground(new java.awt.Color(204, 204, 255));
+        menuItem9.setPreferredSize(new java.awt.Dimension(141, 62));
+        menuItem9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuItem9MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                menuItem9MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                menuItem9MouseExited(evt);
+            }
+        });
+        menuItem9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8-report-32 diem.png"))); // NOI18N
+        jLabel14.setText("Báo cáo thống kê điểm");
+        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel14MouseEntered(evt);
+            }
+        });
+        menuItem9.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, -1, -1));
+
         javax.swing.GroupLayout sidepaneLayout = new javax.swing.GroupLayout(sidepane);
         sidepane.setLayout(sidepaneLayout);
         sidepaneLayout.setHorizontalGroup(
             sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(menuItem1, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
-            .addComponent(menuItem3, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
-            .addComponent(menuItem4, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
-            .addComponent(menuItem2, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
-            .addComponent(menuItem6, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
+            .addComponent(menuItem1, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
+            .addComponent(menuItem3, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
+            .addComponent(menuItem4, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
+            .addComponent(menuItem2, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
+            .addComponent(menuItem6, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
             .addComponent(jSeparator2)
             .addComponent(jSeparator3)
-            .addComponent(menuItem7, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
+            .addComponent(menuItem7, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
             .addComponent(menuItem5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(sidepaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(menuItem8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(sidepaneLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(menuItem9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         sidepaneLayout.setVerticalGroup(
             sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,19 +301,23 @@ public class MainFormAdmin extends javax.swing.JFrame {
                 .addComponent(menuItem2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(menuItem3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
+                .addGap(1, 1, 1)
+                .addComponent(menuItem8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(menuItem9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(menuItem4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(menuItem5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
                 .addComponent(menuItem6, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(menuItem7, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(261, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         logopane.setBackground(new java.awt.Color(153, 153, 255));
@@ -276,7 +341,7 @@ public class MainFormAdmin extends javax.swing.JFrame {
                 .addGroup(logopaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jSeparator4)
                     .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(323, Short.MAX_VALUE))
+                .addContainerGap(303, Short.MAX_VALUE))
         );
         logopaneLayout.setVerticalGroup(
             logopaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -444,6 +509,54 @@ public class MainFormAdmin extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_menuItem7MouseClicked
+
+    private void menuItem8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuItem8MouseExited
+         resetColor(menuItem8);
+    }//GEN-LAST:event_menuItem8MouseExited
+
+    private void menuItem8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuItem8MouseEntered
+         setColor(menuItem8);
+    }//GEN-LAST:event_menuItem8MouseEntered
+
+    private void menuItem8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuItem8MouseClicked
+       if (check3 == 0){
+            check3 = 1;
+            ImageIcon icon = new ImageIcon(getClass().getResource("/Image/icons8-management-16.png"));
+            try {
+                mainTabPanel.addTab("Báo cáo hồ sơ", icon, new BaoCaoHoSoPanel(userLogin), "Báo cáo Hồ Sơ");
+            } catch (SQLException ex) {
+                Logger.getLogger(MainFormAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_menuItem8MouseClicked
+
+    private void jLabel13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel13MouseEntered
+
+    private void jLabel14MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel14MouseEntered
+
+    private void menuItem9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuItem9MouseClicked
+        if (check4 == 0){
+            check4 = 1;
+            ImageIcon icon = new ImageIcon(getClass().getResource("/Image/icons8-management-16.png"));
+            try {
+                mainTabPanel.addTab("Thống kê điểm thí sinh", icon, new BaoCaoDiemPanel(userLogin), "Thống kê điểm thí sinh");
+            } catch (SQLException ex) {
+                Logger.getLogger(MainFormAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_menuItem9MouseClicked
+
+    private void menuItem9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuItem9MouseEntered
+       setColor(menuItem9);
+    }//GEN-LAST:event_menuItem9MouseEntered
+
+    private void menuItem9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuItem9MouseExited
+         resetColor(menuItem9);
+    }//GEN-LAST:event_menuItem9MouseExited
     
     /**
      * @param args the command line arguments
@@ -475,7 +588,7 @@ public class MainFormAdmin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainFormAdmin().setVisible(true);
+                new MainFormAdmin("").setVisible(true);
             }
         });
     }
@@ -484,6 +597,8 @@ public class MainFormAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
@@ -505,6 +620,8 @@ public class MainFormAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel menuItem5;
     private javax.swing.JPanel menuItem6;
     private javax.swing.JPanel menuItem7;
+    private javax.swing.JPanel menuItem8;
+    private javax.swing.JPanel menuItem9;
     private javax.swing.JPanel sidepane;
     // End of variables declaration//GEN-END:variables
 }

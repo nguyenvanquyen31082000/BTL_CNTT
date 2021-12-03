@@ -126,6 +126,11 @@ public class HoSoPanel extends javax.swing.JPanel {
         rdoNam.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         rdoNam.setSelected(true);
         rdoNam.setText("Nam");
+        rdoNam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdoNamActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(rdoNu);
         rdoNu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -510,7 +515,7 @@ public class HoSoPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Họ Tên", "Địa Chỉ", "Nơi Sinh", "CMTND", "Giới Tính", "Ngày Sinh", "Số Điện Thoại", "Email", "Ưu Tiên"
+                "Mã thí sinh", "Họ Tên", "Địa Chỉ", "Nơi Sinh", "CMTND", "Giới Tính", "Ngày Sinh", "Số Điện Thoại", "Email", "Ưu Tiên"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -762,6 +767,10 @@ public class HoSoPanel extends javax.swing.JPanel {
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         clearBox();
     }//GEN-LAST:event_btnClearActionPerformed
+
+    private void rdoNamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoNamActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdoNamActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

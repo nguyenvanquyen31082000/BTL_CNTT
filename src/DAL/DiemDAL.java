@@ -5,6 +5,7 @@
  */
 package DAL;
 
+import DTO.BaoCaoDiemDto;
 import DTO.DiemThi;
 import DTO.MonThi;
 import java.sql.CallableStatement;
@@ -162,5 +163,35 @@ public class DiemDAL {
             e.printStackTrace();
         }
         return null;
+    }
+    
+    public static ArrayList<BaoCaoDiemDto> searchDiemBaoCao(String id, String monthi, String namThi,String type, String query){
+        ArrayList<BaoCaoDiemDto> li = new ArrayList<>();
+        try (
+                Connection conn = DAL.getConnection();
+                CallableStatement pstmt = conn.prepareCall(query);
+        ){
+            pstmt.setString(1, id);
+            if("1".equals(type)){
+                pstmt.setString(2, monthi);
+                pstmt.setString(3, namThi);
+            }
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {                
+                BaoCaoDiemDto a = new BaoCaoDiemDto();
+                a.setIdThiSinh(rs.getString(1));
+                a.setHoten(rs.getString(2));
+                a.setCmnd(rs.getString(3));
+                a.setIdMonThi(rs.getString(4));
+                a.setTenmon(rs.getString(5));
+                a.setDiem(rs.getString(6));
+                a.setCumThi(rs.getString(7));
+                a.setNamThi(rs.getString(8));
+                li.add(a);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return li;
     }
 }

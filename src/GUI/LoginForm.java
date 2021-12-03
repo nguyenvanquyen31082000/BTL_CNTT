@@ -151,7 +151,7 @@ public class LoginForm extends javax.swing.JFrame {
         try {
             if (BUS.TaiKhoanBUS.getLogin(userName, passWord)){
                 if (BUS.TaiKhoanBUS.a.getQuyenHan().equals("ADMIN")) {
-                    formAdmin = new MainFormAdmin();
+                    formAdmin = new MainFormAdmin(userName);
                     formAdmin.setExtendedState(JFrame.MAXIMIZED_BOTH);
                     this.dispose();
                     formAdmin.setVisible(true);

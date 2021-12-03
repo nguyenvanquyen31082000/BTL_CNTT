@@ -138,4 +138,35 @@ public class ThiSinhDAL {
         return li;
     }
     
+    public static ArrayList<ThiSinh> searchThiSinhsBaoCao(String id ,String gioiTinh, String noiSinh, String uuTien, String query){
+        ArrayList<ThiSinh> li = new ArrayList<>();       
+        try (
+                Connection conn = DAL.getConnection();
+                CallableStatement pstmt = conn.prepareCall(query);
+            ) {
+            pstmt.setString(1, id);
+            pstmt.setString(2, gioiTinh);
+            pstmt.setString(3, noiSinh);
+            pstmt.setString(4, uuTien);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                ThiSinh a = new ThiSinh();
+                a.setID(rs.getString("ID_ThiSinh"));
+                a.setHoTen(rs.getString("HoTen"));
+                a.setDiaChi(rs.getString("DiaChi"));
+                a.setNoiSinh(rs.getString("NoiSinh"));
+                a.setCmtnd(rs.getString("CMND"));
+                a.setGioiTinh(rs.getString("GioiTinh"));
+                a.setNgaySinh(rs.getString("NgaySinh"));
+                a.setSoDienThoai(rs.getString("SoDienThoai"));
+                a.setEmail(rs.getString("Email"));
+                a.setUuTien(rs.getString("UuTien_ID"));
+                li.add(a);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }           
+        return li;
+    }
+    
 }

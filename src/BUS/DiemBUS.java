@@ -5,12 +5,14 @@
  */
 package BUS;
 
+import DTO.BaoCaoDiemDto;
 import DTO.DiemThi;
 import DTO.MonThi;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -108,5 +110,29 @@ public class DiemBUS {
     public static DiemThi findById(String id, String idMon){
         String query = "{ call check_diem(?, ?)}";
         return DAL.DiemDAL.findById(id, idMon, query);
+    }
+    public static  ArrayList<BaoCaoDiemDto> search_DiemsBaoCao( JTextField jId, JComboBox cbbMonThi, JComboBox cbbNamThi, String type){
+        String query = "select ts.id_thisinh,ts.hoten,ts.cmnd,mt.id_monthi,mt.tenmon,dt.diem,dt.cumthi,dt.namthi from diemthi dt,thisinh ts,monthi mt \n" +
+                        "where dt.id_thisinh = ts.id_thisinh and dt.id_monthi = mt.id_monthi and ts.id_thisinh like concat(\"%\",?,\"%\") "
+                + " and  mt.tenmon like concat(\"%\",?,\"%\") and dt.NamThi like concat(\"%\",?,\"%\");";
+        String query1 = "select ts.id_thisinh,ts.hoten,ts.cmnd,null ,null,null,null,null from thisinh ts\n" +
+                "where ts.id_thisinh not in (select id_thisinh from diemthi) and ts.id_thisinh like concat(\"%\",?,\"%\") ;";
+        String monThi = "", namThi = "",id = "";
+        if (!cbbMonThi.getSelectedItem().equals("<Tất Cả>")){            
+            monThi = cbbMonThi.getSelectedItem().toString();
+        }
+        if(!cbbNamThi.getSelectedItem().equals("<Tất Cả>")){
+            namThi = cbbNamThi.getSelectedItem().toString();
+        }
+        if(jId.getText() != null && !"".equals(jId.getText())){
+            id = jId.getText().trim();
+        }
+        ArrayList<BaoCaoDiemDto> li = new ArrayList<>();
+        if("1".equals(type)){
+            li = DAL.DiemDAL.searchDiemBaoCao(id, monThi, namThi,type, query);
+        } else{
+            li = DAL.DiemDAL.searchDiemBaoCao(id, monThi, namThi,type, query1);    
+        }  
+        return li;
     }
 }
