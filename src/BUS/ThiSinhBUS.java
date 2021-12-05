@@ -71,7 +71,7 @@ public class ThiSinhBUS {
     }
 
     public static void searchThiSinh(JComboBox bGioiTinh, JComboBox bNoiSinh, JComboBox bUuTien, JTable jTable) {
-        String query = "select * from thisinh where GioiTinh like concat(\"%\",?,\"%\") and NoiSinh like concat(\"%\",?,\"%\") and UuTien_ID like concat(\"%\",?,\"%\")";
+        String query = "select * from thisinh where GioiTinh like concat(\"%\",?,\"%\") and NoiSinh like concat(\"%\",?,\"%\") and UuTien_ID like concat(\"%\",?,\"%\")  order by CAST(Id_thisinh AS UNSIGNED) asc";
         String gioiTinh = "";
         if (!bGioiTinh.getSelectedItem().toString().equals("<Tất Cả>")) {
             gioiTinh = bGioiTinh.getSelectedItem().toString();
@@ -97,7 +97,7 @@ public class ThiSinhBUS {
 
     public static ArrayList<ThiSinh> searchThiSinhBaoCao(JTextField jId, JComboBox bGioiTinh, JComboBox bNoiSinh, JComboBox bUuTien) {
         String query = "select * from thisinh where ID_ThiSinh like concat(\"%\",?,\"%\") and   GioiTinh like concat(\"%\",?,\"%\") and NoiSinh like concat(\"%\",?,\"%\") "
-                + "and UuTien_ID like concat(\"%\",?,\"%\")";
+                + "and UuTien_ID like concat(\"%\",?,\"%\")  order by CAST(Id_thisinh AS UNSIGNED) asc";
         String gioiTinh = "";
         if (!bGioiTinh.getSelectedItem().toString().equals("<Tất Cả>")) {
             gioiTinh = bGioiTinh.getSelectedItem().toString();

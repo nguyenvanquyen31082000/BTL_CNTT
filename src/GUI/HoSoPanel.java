@@ -287,11 +287,11 @@ public class HoSoPanel extends javax.swing.JPanel {
 
         eror1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         eror1.setForeground(new java.awt.Color(255, 0, 51));
-        eror1.setText("Ko chứa kí tự đặc biệt");
+        eror1.setText("Không chứa kí tự đặc biệt");
 
         eror2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         eror2.setForeground(new java.awt.Color(255, 0, 51));
-        eror2.setText("Chỉ chứa kí tự chữ");
+        eror2.setText("Không để trống và chỉ chứa kí tự chữ");
 
         eror3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         eror3.setForeground(new java.awt.Color(255, 0, 51));
@@ -299,19 +299,19 @@ public class HoSoPanel extends javax.swing.JPanel {
 
         eror4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         eror4.setForeground(new java.awt.Color(255, 0, 51));
-        eror4.setText("Chỉ chứa số, ko trùng");
+        eror4.setText("Không để trống,chỉ chứa số, không trùng");
 
         eror5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         eror5.setForeground(new java.awt.Color(255, 0, 51));
-        eror5.setText("Ko được để trống");
+        eror5.setText("Không được để trống");
 
         eror6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         eror6.setForeground(new java.awt.Color(255, 0, 51));
-        eror6.setText("Chỉ chứa số");
+        eror6.setText("Không để trống,chỉ chứa số");
 
         eror7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         eror7.setForeground(new java.awt.Color(255, 0, 51));
-        eror7.setText("Sai định dạng email");
+        eror7.setText("Không để trống,phải đúng định dạng email");
 
         btnDestroy.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnDestroy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8-refresh-16.png"))); // NOI18N
@@ -575,9 +575,10 @@ public class HoSoPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 931, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 866, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -666,7 +667,7 @@ public class HoSoPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void checkInputInfo(String id, String hoTen, JComboBox d, JComboBox m, JComboBox y, String cmtnd, String diaChi, String soDienThoai, String email) {
-        if (!BUS.UtilityClass.validFullName(hoTen)) {
+        if (hoTen == null || "".equals(hoTen) || !BUS.UtilityClass.validFullName(hoTen)) {
             eror2.setVisible(true);
         } else {
             eror2.setVisible(false);
@@ -691,12 +692,12 @@ public class HoSoPanel extends javax.swing.JPanel {
         } else {
             eror5.setVisible(false);
         }
-        if (!BUS.UtilityClass.validNumberPhone(soDienThoai)) {
+        if (soDienThoai == null || "".equals(soDienThoai) || !BUS.UtilityClass.validNumberPhone(soDienThoai)) {
             eror6.setVisible(true);
         } else {
             eror6.setVisible(false);
         }
-        if (!BUS.UtilityClass.validEmail(email)) {
+        if (email == null || "".equals(email) || !BUS.UtilityClass.validEmail(email)) {
             eror7.setVisible(true);
         } else {
             eror7.setVisible(false);
@@ -794,6 +795,13 @@ public class HoSoPanel extends javax.swing.JPanel {
         btnXoa.setVisible(true);
         btnClear.setVisible(false);
         enableComponent(false);
+        eror1.setVisible(false);
+        eror2.setVisible(false);
+        eror3.setVisible(false);
+        eror4.setVisible(false);
+        eror5.setVisible(false);
+        eror6.setVisible(false);
+        eror7.setVisible(false);
     }//GEN-LAST:event_btnDestroyActionPerformed
 
     private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
@@ -814,10 +822,12 @@ public class HoSoPanel extends javax.swing.JPanel {
             String uuTien = cbbUuTien.getSelectedItem().toString();
             String cmtnd = txtCmntd.getText();
             checkInputInfo(id, hoTen, cbbNgaySinh, cbbThangSinh, cbbNamSinh, cmtnd, diaChi, soDienThoai, email);
+            if(!"".equals(cmtnd)){
             if (BUS.ThiSinhBUS.getAThiSinh(cmtnd) != null) {
                 eror4.setVisible(true);
             } else {
                 eror4.setVisible(false);
+            }
             }
             if (BUS.ThiSinhBUS.findById(id) != null) {
                 JOptionPane.showMessageDialog(this, "Thí Sinh Đã Tồn Tại!", "Thông Báo", JOptionPane.ERROR_MESSAGE);
@@ -838,6 +848,7 @@ public class HoSoPanel extends javax.swing.JPanel {
                     btnXoa.setVisible(true);
                     btnClear.setVisible(false);
                     enableComponent(false);
+                     tblHoSo.enable();
                 } catch (SQLException ex) {
                     Logger.getLogger(HoSoPanel.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -859,13 +870,17 @@ public class HoSoPanel extends javax.swing.JPanel {
             String uuTien = cbbUuTien.getSelectedItem().toString();
             String cmtnd = txtCmntd.getText();
             checkInputInfo(id, hoTen, cbbNgaySinh, cbbThangSinh, cbbNgaySinh, cmtnd, diaChi, soDienThoai, email);
-            if (BUS.ThiSinhBUS.getAThiSinh(cmtnd) != null) {
+            ThiSinh ts = null;
+             if(!"".equals(cmtnd)){
+             ts = BUS.ThiSinhBUS.getAThiSinh(cmtnd) ;
+            if (ts != null && !id.equals(ts.getID())) {
                 eror4.setVisible(true);
             } else {
                 eror4.setVisible(false);
             }
+             }
             if (!(BUS.UtilityClass.hasSpecChar(id) || id.equals("")) && BUS.UtilityClass.validFullName(hoTen) && BUS.UtilityClass.validDate(cbbNgaySinh, cbbThangSinh, cbbNamSinh)
-                    && !(BUS.UtilityClass.hasLetter(cmtnd) || BUS.UtilityClass.hasSpecChar(cmtnd) || cmtnd.length() == 0 || BUS.ThiSinhBUS.getAThiSinh(cmtnd) != null) && !diaChi.equals("")
+                    && !(BUS.UtilityClass.hasLetter(cmtnd) || BUS.UtilityClass.hasSpecChar(cmtnd) || cmtnd.length() == 0 || (ts != null && !id.equals(ts.getID()))) && !diaChi.equals("")
                     && BUS.UtilityClass.validNumberPhone(soDienThoai) && BUS.UtilityClass.validEmail(email)) {
                 try {
                     ThiSinh a = new ThiSinh(id, hoTen, noiSinh, cmtnd, diaChi, gioiTinh, ngaySinh, soDienThoai, email, uuTien);
@@ -881,6 +896,7 @@ public class HoSoPanel extends javax.swing.JPanel {
                     btnXoa.setVisible(true);
                     btnClear.setVisible(false);
                     enableComponent(false);
+                     tblHoSo.enable();
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(this, "Sửa thí sinh thất bại!", "Thông Báo", JOptionPane.ERROR_MESSAGE);
                     Logger.getLogger(HoSoPanel.class.getName()).log(Level.SEVERE, null, ex);

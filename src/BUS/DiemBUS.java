@@ -114,9 +114,9 @@ public class DiemBUS {
     public static  ArrayList<BaoCaoDiemDto> search_DiemsBaoCao( JTextField jId, JComboBox cbbMonThi, JComboBox cbbNamThi, String type){
         String query = "select ts.id_thisinh,ts.hoten,ts.cmnd,mt.id_monthi,mt.tenmon,dt.diem,dt.cumthi,dt.namthi from diemthi dt,thisinh ts,monthi mt \n" +
                         "where dt.id_thisinh = ts.id_thisinh and dt.id_monthi = mt.id_monthi and ts.id_thisinh like concat(\"%\",?,\"%\") "
-                + " and  mt.tenmon like concat(\"%\",?,\"%\") and dt.NamThi like concat(\"%\",?,\"%\");";
+                + " and  mt.tenmon like concat(\"%\",?,\"%\") and dt.NamThi like concat(\"%\",?,\"%\")  order by CAST(ts.Id_thisinh AS UNSIGNED) asc;";
         String query1 = "select ts.id_thisinh,ts.hoten,ts.cmnd,null ,null,null,null,null from thisinh ts\n" +
-                "where ts.id_thisinh not in (select id_thisinh from diemthi) and ts.id_thisinh like concat(\"%\",?,\"%\") ;";
+                "where ts.id_thisinh not in (select id_thisinh from diemthi) and ts.id_thisinh like concat(\"%\",?,\"%\")  order by CAST(ts.Id_thisinh AS UNSIGNED) asc;";
         String monThi = "", namThi = "",id = "";
         if (!cbbMonThi.getSelectedItem().equals("<Tất Cả>")){            
             monThi = cbbMonThi.getSelectedItem().toString();

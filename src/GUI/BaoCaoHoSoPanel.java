@@ -114,7 +114,7 @@ public class BaoCaoHoSoPanel extends javax.swing.JPanel {
         cbbGioiTinhTK.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Tất Cả>", "Nam", "Nữ" }));
 
         cbbNoiSinhTK.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cbbNoiSinhTK.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Tất Cả>", "Hà Nội", "Hà Tây", "Hải Dương", "Bắc Ninh", "Hà Giang", "Hà Nam", "Lạng Sơn" }));
+        cbbNoiSinhTK.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Tất Cả>", "An Giang", "Bà Rịa-Vũng Tàu", "Bạc Liêu", "Bắc Kạn", "Bắc Giang", "Bắc Ninh", "Bến Tre", "Bình Dương", "Bình Phước", "Bình Thuận", "Cà Mau", "Cao Bằng", "Cần Thơ", "Đà Nẵng", "Đắk Nông", "Điện Biên", "Đồng Nai", "Đồng Tháp", "Gia Lai", "Hà Giang", "Hà Nam", "Hà Nội", "Hà Tĩnh", "Hải Dương", "Hải Phòng", "Hòa Bình", "Hồ Chí Minh", "Hậu Giang", "Hưng Yên", "Khánh Hòa", "Kiên Giang", "Kon Tum", "Lai Châu", "Lào Cai", "Lạng Sơn", "Lâm Đồng", "Long An", "Nam Định", "Nghệ An", "Ninh Bình", "Ninh Thuận", "Phú Thọ", "Phú Yên", "Quảng Bình", "Quảng Nam", "Quảng Ngãi", "Quảng Ninh", "Quảng Trị", "Sóc Trăng", "Sơn La", "Tây Ninh", "Thái Bình", "Thái Nguyên", "Thanh Hóa", "Thừa Thiên – Huế", "Tiền Giang", "Trà Vinh", "Tuyên Quang", "Vĩnh Long", "Vĩnh Phúc", "Yên Bái" }));
 
         cbbUuTienTK.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbbUuTienTK.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Tất Cả>", "UT1", "UT2", "KV1", "KV2-NT", "KV2", "KV3" }));

@@ -23,9 +23,10 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel1" min="-2" pref="458" max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="931" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="866" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -900,7 +901,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="0" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ko ch&#x1ee9;a k&#xed; t&#x1ef1; &#x111;&#x1eb7;c bi&#x1ec7;t"/>
+            <Property name="text" type="java.lang.String" value="Kh&#xf4;ng ch&#x1ee9;a k&#xed; t&#x1ef1; &#x111;&#x1eb7;c bi&#x1ec7;t"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="eror2">
@@ -911,7 +912,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="0" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ch&#x1ec9; ch&#x1ee9;a k&#xed; t&#x1ef1; ch&#x1eef;"/>
+            <Property name="text" type="java.lang.String" value="Kh&#xf4;ng &#x111;&#x1ec3; tr&#x1ed1;ng v&#xe0; ch&#x1ec9; ch&#x1ee9;a k&#xed; t&#x1ef1; ch&#x1eef;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="eror3">
@@ -933,7 +934,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="0" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ch&#x1ec9; ch&#x1ee9;a s&#x1ed1;, ko tr&#xf9;ng"/>
+            <Property name="text" type="java.lang.String" value="Kh&#xf4;ng &#x111;&#x1ec3; tr&#x1ed1;ng,ch&#x1ec9; ch&#x1ee9;a s&#x1ed1;, kh&#xf4;ng tr&#xf9;ng"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="eror5">
@@ -944,7 +945,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="0" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ko &#x111;&#x1b0;&#x1ee3;c &#x111;&#x1ec3; tr&#x1ed1;ng"/>
+            <Property name="text" type="java.lang.String" value="Kh&#xf4;ng &#x111;&#x1b0;&#x1ee3;c &#x111;&#x1ec3; tr&#x1ed1;ng"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="eror6">
@@ -955,7 +956,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="0" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ch&#x1ec9; ch&#x1ee9;a s&#x1ed1;"/>
+            <Property name="text" type="java.lang.String" value="Kh&#xf4;ng &#x111;&#x1ec3; tr&#x1ed1;ng,ch&#x1ec9; ch&#x1ee9;a s&#x1ed1;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="eror7">
@@ -966,7 +967,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="0" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Sai &#x111;&#x1ecb;nh d&#x1ea1;ng email"/>
+            <Property name="text" type="java.lang.String" value="Kh&#xf4;ng &#x111;&#x1ec3; tr&#x1ed1;ng,ph&#x1ea3;i &#x111;&#xfa;ng &#x111;&#x1ecb;nh d&#x1ea1;ng email"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnDestroy">
