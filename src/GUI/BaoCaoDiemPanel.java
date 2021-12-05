@@ -397,6 +397,12 @@ public class BaoCaoDiemPanel extends javax.swing.JPanel {
             cell.setCellValue("Người xuất : " + userLogin);
             cell.setCellStyle(styleInfo);
             rownum++;
+            row = sheet.createRow(rownum);
+            cell = row.createCell(1, CellType.STRING);
+            String type = rdoDacodiem.isSelected() ? "Đã có điểm" : "Chưa có điểm";
+            cell.setCellValue("Loại : " + type);
+            cell.setCellStyle(styleInfo);
+            rownum++;
             rownum++;
             row = sheet.createRow(rownum);
             cell = row.createCell(0, CellType.STRING);

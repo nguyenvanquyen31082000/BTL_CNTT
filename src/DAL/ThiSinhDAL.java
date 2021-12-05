@@ -19,12 +19,12 @@ import java.util.logging.Logger;
  * @author Audd
  */
 public class ThiSinhDAL {
-    public static ArrayList<ThiSinh> getAllThiSinhs(String query){
+
+    public static ArrayList<ThiSinh> getAllThiSinhs(String query) {
         ArrayList<ThiSinh> li = new ArrayList<>();
         try (
                 Connection conn = DAL.getConnection();
-                CallableStatement pstmt = conn.prepareCall(query);
-            ) {           
+                CallableStatement pstmt = conn.prepareCall(query);) {
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 ThiSinh a = new ThiSinh();
@@ -42,15 +42,14 @@ public class ThiSinhDAL {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        }           
+        }
         return li;
     }
-    
-    public static void actionThiSinh(ThiSinh a, String query){
+
+    public static void actionThiSinh(ThiSinh a, String query) {
         try (
                 Connection conn = DAL.getConnection();
-                CallableStatement pstmt = conn.prepareCall(query);
-            ) {
+                CallableStatement pstmt = conn.prepareCall(query);) {
             pstmt.setString(1, a.getID());
             pstmt.setString(2, a.getHoTen());
             pstmt.setString(3, a.getNoiSinh());
@@ -61,34 +60,32 @@ public class ThiSinhDAL {
             pstmt.setString(8, a.getSoDienThoai());
             pstmt.setString(9, a.getEmail());
             pstmt.setString(10, a.getUuTien());
-            
+
             pstmt.execute();
         } catch (SQLException ex) {
             Logger.getLogger(ThiSinhDAL.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-    
-    public static void deleteThiSinh(ThiSinh a, String query){
+
+    public static void deleteThiSinh(ThiSinh a, String query) {
         try (
                 Connection conn = DAL.getConnection();
-                CallableStatement pstmt = conn.prepareCall(query);
-            ) {                  
-            pstmt.setString(1, a.getID());          
+                CallableStatement pstmt = conn.prepareCall(query);) {
+            pstmt.setString(1, a.getID());
             pstmt.execute();
         } catch (SQLException ex) {
             Logger.getLogger(ThiSinhDAL.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public static ThiSinh getThiSinh(String id, String query){
+
+    public static ThiSinh getThiSinh(String id, String query) {
         try (
                 Connection conn = DAL.getConnection();
-                CallableStatement pstmt = conn.prepareCall(query);
-            ){          
+                CallableStatement pstmt = conn.prepareCall(query);) {
             pstmt.setString(1, id);
             ResultSet rs = pstmt.executeQuery();
-            if (rs.next()){
+            if (rs.next()) {
                 ThiSinh a = new ThiSinh();
                 a.setID(rs.getString("ID_ThiSinh"));
                 a.setHoTen(rs.getString("HoTen"));
@@ -107,13 +104,12 @@ public class ThiSinhDAL {
         }
         return null;
     }
-    
-    public static ArrayList<ThiSinh> searchThiSinhs(String gioiTinh, String noiSinh, String uuTien, String query){
-        ArrayList<ThiSinh> li = new ArrayList<>();       
+
+    public static ArrayList<ThiSinh> searchThiSinhs(String gioiTinh, String noiSinh, String uuTien, String query) {
+        ArrayList<ThiSinh> li = new ArrayList<>();
         try (
                 Connection conn = DAL.getConnection();
-                CallableStatement pstmt = conn.prepareCall(query);
-            ) {           
+                CallableStatement pstmt = conn.prepareCall(query);) {
             pstmt.setString(1, gioiTinh);
             pstmt.setString(2, noiSinh);
             pstmt.setString(3, uuTien);
@@ -134,16 +130,15 @@ public class ThiSinhDAL {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        }           
+        }
         return li;
     }
-    
-    public static ArrayList<ThiSinh> searchThiSinhsBaoCao(String id ,String gioiTinh, String noiSinh, String uuTien, String query){
-        ArrayList<ThiSinh> li = new ArrayList<>();       
+
+    public static ArrayList<ThiSinh> searchThiSinhsBaoCao(String id, String gioiTinh, String noiSinh, String uuTien, String query) {
+        ArrayList<ThiSinh> li = new ArrayList<>();
         try (
                 Connection conn = DAL.getConnection();
-                CallableStatement pstmt = conn.prepareCall(query);
-            ) {
+                CallableStatement pstmt = conn.prepareCall(query);) {
             pstmt.setString(1, id);
             pstmt.setString(2, gioiTinh);
             pstmt.setString(3, noiSinh);
@@ -165,8 +160,22 @@ public class ThiSinhDAL {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        }           
+        }
         return li;
     }
-    
+
+    public static String getSeqThiSinh(String query) {
+        String seq = "";
+        try (
+                Connection conn = DAL.getConnection();
+                CallableStatement pstmt = conn.prepareCall(query);) {
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                seq = rs.getString(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return seq;
+    }
 }
