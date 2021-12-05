@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Audd
  */
 public class HoSoPanel extends javax.swing.JPanel {
-    
+
     private String stateForm = "DEFAULT";
 
     /**
@@ -587,28 +587,28 @@ public class HoSoPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tblHoSoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblHoSoMouseClicked
-        
-        DefaultTableModel model = (DefaultTableModel) tblHoSo.getModel();
-        int selectedRow = tblHoSo.getSelectedRow();
-        String[] ngaySinh = model.getValueAt(selectedRow, 6).toString().split("-");
-        cbbNamSinh.getModel().setSelectedItem(ngaySinh[0]);
-        cbbThangSinh.getModel().setSelectedItem(ngaySinh[1]);
-        cbbNgaySinh.getModel().setSelectedItem(ngaySinh[2].substring(0, 2));
-        String gioiTinh = model.getValueAt(selectedRow, 5).toString();
-        if (gioiTinh.equals("Nam")) {
-            rdoNam.setSelected(true);
-        } else {
-            rdoNu.setSelected(true);
+        if (!"ADD".equals(stateForm)) {
+            DefaultTableModel model = (DefaultTableModel) tblHoSo.getModel();
+            int selectedRow = tblHoSo.getSelectedRow();
+            String[] ngaySinh = model.getValueAt(selectedRow, 6).toString().split("-");
+            cbbNamSinh.getModel().setSelectedItem(ngaySinh[0]);
+            cbbThangSinh.getModel().setSelectedItem(ngaySinh[1]);
+            cbbNgaySinh.getModel().setSelectedItem(ngaySinh[2].substring(0, 2));
+            String gioiTinh = model.getValueAt(selectedRow, 5).toString();
+            if (gioiTinh.equals("Nam")) {
+                rdoNam.setSelected(true);
+            } else {
+                rdoNu.setSelected(true);
+            }
+            cbbNoiSinh.getModel().setSelectedItem(model.getValueAt(selectedRow, 3).toString());
+            txtID.setText(model.getValueAt(selectedRow, 0).toString());
+            txtHoTen.setText(model.getValueAt(selectedRow, 1).toString());
+            txtCmntd.setText(model.getValueAt(selectedRow, 4).toString());
+            txtDiaChi.setText(model.getValueAt(selectedRow, 2).toString());
+            txtSoDienThoai.setText(model.getValueAt(selectedRow, 7).toString());
+            txtEmail.setText(model.getValueAt(selectedRow, 8).toString());
+            cbbUuTien.getModel().setSelectedItem(model.getValueAt(selectedRow, 9).toString());
         }
-        cbbNoiSinh.getModel().setSelectedItem(model.getValueAt(selectedRow, 3).toString());
-        txtID.setText(model.getValueAt(selectedRow, 0).toString());
-        txtHoTen.setText(model.getValueAt(selectedRow, 1).toString());
-        txtCmntd.setText(model.getValueAt(selectedRow, 4).toString());
-        txtDiaChi.setText(model.getValueAt(selectedRow, 2).toString());
-        txtSoDienThoai.setText(model.getValueAt(selectedRow, 7).toString());
-        txtEmail.setText(model.getValueAt(selectedRow, 8).toString());
-        cbbUuTien.getModel().setSelectedItem(model.getValueAt(selectedRow, 9).toString());
-
     }//GEN-LAST:event_tblHoSoMouseClicked
 
     private void btnDongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDongActionPerformed
@@ -626,9 +626,9 @@ public class HoSoPanel extends javax.swing.JPanel {
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         String id = txtID.getText();
-        if(id == null || "".equals(id)){
-             JOptionPane.showMessageDialog(this, "Mơi chọ thí sinh muốn xóa", "Thông Báo", JOptionPane.ERROR_MESSAGE);
-             return;
+        if (id == null || "".equals(id)) {
+            JOptionPane.showMessageDialog(this, "Mơi chọ thí sinh muốn xóa", "Thông Báo", JOptionPane.ERROR_MESSAGE);
+            return;
         }
         String hoTen = txtHoTen.getText();
         String ngaySinh = cbbNamSinh.getSelectedItem().toString() + "-" + cbbThangSinh.getSelectedItem().toString() + "-" + cbbNgaySinh.getSelectedItem().toString();
@@ -644,7 +644,7 @@ public class HoSoPanel extends javax.swing.JPanel {
         String email = txtEmail.getText();
         String uuTien = cbbUuTien.getSelectedItem().toString();
         String cmtnd = txtCmntd.getText();
-        
+
         ThiSinh a = new ThiSinh(id, hoTen, noiSinh, cmtnd, diaChi, gioiTinh, ngaySinh, soDienThoai, email, uuTien);
         int dk = JOptionPane.showConfirmDialog(this, "Bạn có chắc chắn muốn xóa không?", "Thông Báo", JOptionPane.OK_CANCEL_OPTION);
         if (dk == JOptionPane.OK_OPTION) {
@@ -652,8 +652,8 @@ public class HoSoPanel extends javax.swing.JPanel {
                 try {
                     BUS.ThiSinhBUS.deleteThiSinh(a);
                 } catch (Exception ex) {
-                     JOptionPane.showMessageDialog(this, "Thí sinh đã có điểm,mời xóa điểm thí sinh trước!", "Thông Báo", JOptionPane.ERROR_MESSAGE);
-                     return;
+                    JOptionPane.showMessageDialog(this, "Thí sinh đã có điểm,mời xóa điểm thí sinh trước!", "Thông Báo", JOptionPane.ERROR_MESSAGE);
+                    return;
                 }
                 BUS.ThiSinhBUS.getAllThiSinhs(tblHoSo);
                 clearBox();
@@ -664,7 +664,7 @@ public class HoSoPanel extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_btnXoaActionPerformed
-    
+
     private void checkInputInfo(String id, String hoTen, JComboBox d, JComboBox m, JComboBox y, String cmtnd, String diaChi, String soDienThoai, String email) {
         if (!BUS.UtilityClass.validFullName(hoTen)) {
             eror2.setVisible(true);
@@ -702,7 +702,7 @@ public class HoSoPanel extends javax.swing.JPanel {
             eror7.setVisible(false);
         }
     }
-    
+
     private void clearBox() {
         txtHoTen.setText("");
         txtCmntd.setText("");
@@ -712,6 +712,11 @@ public class HoSoPanel extends javax.swing.JPanel {
     }
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
+        String id = txtID.getText();
+        if (id == null || "".equals(id)) {
+            JOptionPane.showMessageDialog(this, "Mơi chọ thí sinh muốn sửa", "Thông Báo", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         btnAccept.setVisible(true);
         btnDestroy.setVisible(true);
         enableComponent(true);
@@ -720,7 +725,7 @@ public class HoSoPanel extends javax.swing.JPanel {
         btnXoa.setVisible(false);
         btnClear.setVisible(true);
         stateForm = "UPDATE";
-        
+        tblHoSo.disable();
 
     }//GEN-LAST:event_btnSuaActionPerformed
 
@@ -734,11 +739,13 @@ public class HoSoPanel extends javax.swing.JPanel {
         btnClear.setVisible(true);
         stateForm = "ADD";
         clearBox();
-        txtID.setText( BUS.ThiSinhBUS.getSeqThiSinh());
+        txtID.setText(BUS.ThiSinhBUS.getSeqThiSinh());
         tblHoSo.clearSelection();
+        tblHoSo.disable();
     }//GEN-LAST:event_btnThemActionPerformed
-    
+
     public void enableComponent(boolean bIs) {
+
         txtHoTen.setEnabled(bIs);
         cbbNgaySinh.setEnabled(bIs);
         cbbThangSinh.setEnabled(bIs);
@@ -774,9 +781,11 @@ public class HoSoPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_rdoNamActionPerformed
 
     private void btnDestroyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDestroyActionPerformed
-        if("ADD".equals(stateForm)){
+        if ("ADD".equals(stateForm)) {
             txtID.setText("");
+            clearBox();
         }
+        tblHoSo.enable();
         stateForm = "DEFAULT";
         btnAccept.setVisible(false);
         btnDestroy.setVisible(false);
