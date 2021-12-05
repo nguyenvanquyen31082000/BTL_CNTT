@@ -57,16 +57,18 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="cbbUuTien" min="-2" pref="120" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="txtEmail" min="-2" pref="183" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="eror7" min="-2" max="-2" attributes="0"/>
-                              </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="txtSoDienThoai" min="-2" pref="183" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="eror6" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="cbbUuTien" alignment="0" pref="183" max="32767" attributes="0"/>
+                                      <Component id="txtEmail" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="eror7" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -117,35 +119,44 @@
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="cbbNoiSinh" min="-2" pref="118" max="-2" attributes="0"/>
+                          <Component id="btnThem" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="btnSua" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="btnXoa" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="txtCmntd" alignment="1" min="-2" pref="183" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="rdoNam" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                              <Component id="rdoNu" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="cbbNoiSinh" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="txtCmntd" alignment="1" min="-2" pref="183" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="rdoNam" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                                  <Component id="rdoNu" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="cbbNgaySinh" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="cbbThangSinh" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="cbbNamSinh" min="-2" pref="69" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="cbbNgaySinh" min="-2" pref="50" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="cbbThangSinh" min="-2" pref="50" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="cbbNamSinh" min="-2" pref="69" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="txtDiaChi" alignment="1" min="-2" pref="183" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="txtDiaChi" alignment="1" min="-2" pref="183" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -155,13 +166,6 @@
                               <Component id="eror4" min="-2" max="-2" attributes="0"/>
                               <Component id="eror5" min="-2" max="-2" attributes="0"/>
                           </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="btnThem" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btnSua" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btnXoa" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -477,14 +481,68 @@
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="7">
-                <StringItem index="0" value="H&#xe0; N&#x1ed9;i"/>
-                <StringItem index="1" value="H&#xe0; T&#xe2;y"/>
-                <StringItem index="2" value="H&#x1ea3;i D&#x1b0;&#x1a1;ng"/>
-                <StringItem index="3" value="B&#x1eaf;c Ninh"/>
-                <StringItem index="4" value="H&#xe0; Giang"/>
-                <StringItem index="5" value="H&#xe0; Nam"/>
-                <StringItem index="6" value="L&#x1ea1;ng S&#x1a1;n"/>
+              <StringArray count="61">
+                <StringItem index="0" value="An Giang"/>
+                <StringItem index="1" value="B&#xe0; R&#x1ecb;a-V&#x169;ng T&#xe0;u"/>
+                <StringItem index="2" value="B&#x1ea1;c Li&#xea;u"/>
+                <StringItem index="3" value="B&#x1eaf;c K&#x1ea1;n"/>
+                <StringItem index="4" value="B&#x1eaf;c Giang"/>
+                <StringItem index="5" value="B&#x1eaf;c Ninh"/>
+                <StringItem index="6" value="B&#x1ebf;n Tre"/>
+                <StringItem index="7" value="B&#xec;nh D&#x1b0;&#x1a1;ng"/>
+                <StringItem index="8" value="B&#xec;nh Ph&#x1b0;&#x1edb;c"/>
+                <StringItem index="9" value="B&#xec;nh Thu&#x1ead;n"/>
+                <StringItem index="10" value="C&#xe0; Mau"/>
+                <StringItem index="11" value="Cao B&#x1eb1;ng"/>
+                <StringItem index="12" value="C&#x1ea7;n Th&#x1a1;"/>
+                <StringItem index="13" value="&#x110;&#xe0; N&#x1eb5;ng"/>
+                <StringItem index="14" value="&#x110;&#x1eaf;k N&#xf4;ng"/>
+                <StringItem index="15" value="&#x110;i&#x1ec7;n Bi&#xea;n"/>
+                <StringItem index="16" value="&#x110;&#x1ed3;ng Nai"/>
+                <StringItem index="17" value="&#x110;&#x1ed3;ng Th&#xe1;p"/>
+                <StringItem index="18" value="Gia Lai"/>
+                <StringItem index="19" value="H&#xe0; Giang"/>
+                <StringItem index="20" value="H&#xe0; Nam"/>
+                <StringItem index="21" value="H&#xe0; N&#x1ed9;i"/>
+                <StringItem index="22" value="H&#xe0; T&#x129;nh"/>
+                <StringItem index="23" value="H&#x1ea3;i D&#x1b0;&#x1a1;ng"/>
+                <StringItem index="24" value="H&#x1ea3;i Ph&#xf2;ng"/>
+                <StringItem index="25" value="H&#xf2;a B&#xec;nh"/>
+                <StringItem index="26" value="H&#x1ed3; Ch&#xed; Minh"/>
+                <StringItem index="27" value="H&#x1ead;u Giang"/>
+                <StringItem index="28" value="H&#x1b0;ng Y&#xea;n"/>
+                <StringItem index="29" value="Kh&#xe1;nh H&#xf2;a"/>
+                <StringItem index="30" value="Ki&#xea;n Giang"/>
+                <StringItem index="31" value="Kon Tum"/>
+                <StringItem index="32" value="Lai Ch&#xe2;u"/>
+                <StringItem index="33" value="L&#xe0;o Cai"/>
+                <StringItem index="34" value="L&#x1ea1;ng S&#x1a1;n"/>
+                <StringItem index="35" value="L&#xe2;m &#x110;&#x1ed3;ng"/>
+                <StringItem index="36" value="Long An"/>
+                <StringItem index="37" value="Nam &#x110;&#x1ecb;nh"/>
+                <StringItem index="38" value="Ngh&#x1ec7; An"/>
+                <StringItem index="39" value="Ninh B&#xec;nh"/>
+                <StringItem index="40" value="Ninh Thu&#x1ead;n"/>
+                <StringItem index="41" value="Ph&#xfa; Th&#x1ecd;"/>
+                <StringItem index="42" value="Ph&#xfa; Y&#xea;n"/>
+                <StringItem index="43" value="Qu&#x1ea3;ng B&#xec;nh"/>
+                <StringItem index="44" value="Qu&#x1ea3;ng Nam"/>
+                <StringItem index="45" value="Qu&#x1ea3;ng Ng&#xe3;i"/>
+                <StringItem index="46" value="Qu&#x1ea3;ng Ninh"/>
+                <StringItem index="47" value="Qu&#x1ea3;ng Tr&#x1ecb;"/>
+                <StringItem index="48" value="S&#xf3;c Tr&#x103;ng"/>
+                <StringItem index="49" value="S&#x1a1;n La"/>
+                <StringItem index="50" value="T&#xe2;y Ninh"/>
+                <StringItem index="51" value="Th&#xe1;i B&#xec;nh"/>
+                <StringItem index="52" value="Th&#xe1;i Nguy&#xea;n"/>
+                <StringItem index="53" value="Thanh H&#xf3;a"/>
+                <StringItem index="54" value="Th&#x1eeb;a Thi&#xea;n &#x2013; Hu&#x1ebf;"/>
+                <StringItem index="55" value="Ti&#x1ec1;n Giang"/>
+                <StringItem index="56" value="Tr&#xe0; Vinh"/>
+                <StringItem index="57" value="Tuy&#xea;n Quang"/>
+                <StringItem index="58" value="V&#x129;nh Long"/>
+                <StringItem index="59" value="V&#x129;nh Ph&#xfa;c"/>
+                <StringItem index="60" value="Y&#xea;n B&#xe1;i"/>
               </StringArray>
             </Property>
           </Properties>
