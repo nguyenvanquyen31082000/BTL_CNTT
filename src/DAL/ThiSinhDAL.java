@@ -68,7 +68,7 @@ public class ThiSinhDAL {
 
     }
 
-    public static void deleteThiSinh(ThiSinh a, String query) {
+    public static void deleteThiSinh(ThiSinh a, String query) throws Exception{
         try (
                 Connection conn = DAL.getConnection();
                 CallableStatement pstmt = conn.prepareCall(query);) {
@@ -76,6 +76,7 @@ public class ThiSinhDAL {
             pstmt.execute();
         } catch (SQLException ex) {
             Logger.getLogger(ThiSinhDAL.class.getName()).log(Level.SEVERE, null, ex);
+            throw ex;
         }
     }
 

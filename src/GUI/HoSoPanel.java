@@ -647,7 +647,12 @@ public class HoSoPanel extends javax.swing.JPanel {
         int dk = JOptionPane.showConfirmDialog(this, "Bạn có chắc chắn muốn xóa không?", "Thông Báo", JOptionPane.OK_CANCEL_OPTION);
         if (dk == JOptionPane.OK_OPTION) {
             try {
-                BUS.ThiSinhBUS.deleteThiSinh(a);
+                try {
+                    BUS.ThiSinhBUS.deleteThiSinh(a);
+                } catch (Exception ex) {
+                     JOptionPane.showMessageDialog(this, "Thí sinh đã có điểm,mời xóa điểm thí sinh trước!", "Thông Báo", JOptionPane.ERROR_MESSAGE);
+                     return;
+                }
                 BUS.ThiSinhBUS.getAllThiSinhs(tblHoSo);
                 clearBox();
                 JOptionPane.showMessageDialog(this, "Xóa thí sinh thành công!", "Thông Báo", JOptionPane.WARNING_MESSAGE);

@@ -50,7 +50,7 @@ public class ThiSinhBUS {
         DAL.ThiSinhDAL.actionThiSinh(a, query);
     }
 
-    public static void deleteThiSinh(ThiSinh a) {
+    public static void deleteThiSinh(ThiSinh a) throws Exception{
         String query = "{ call delete_thisinh(?)}";
         DAL.ThiSinhDAL.deleteThiSinh(a, query);
     }
