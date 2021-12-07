@@ -129,7 +129,7 @@ public class ThiSinhBUS {
     }
 
     public static String getSeqThiSinh() {
-        String query = "SELECT NEXTVAL(thisinh_seq) as Id;";
+        String query = "  SELECT auto_increment as Id FROM information_schema.tables WHERE table_name='thisinh_seq';";
         return DAL.ThiSinhDAL.getSeqThiSinh(query);
     }
 }

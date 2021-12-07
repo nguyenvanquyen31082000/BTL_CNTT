@@ -652,6 +652,8 @@ public class HoSoPanel extends javax.swing.JPanel {
             try {
                 try {
                     BUS.ThiSinhBUS.deleteThiSinh(a);
+                    txtID.setText("");
+                    clearBox();
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(this, "Thí sinh đã có điểm,mời xóa điểm thí sinh trước!", "Thông Báo", JOptionPane.ERROR_MESSAGE);
                     return;
@@ -822,12 +824,12 @@ public class HoSoPanel extends javax.swing.JPanel {
             String uuTien = cbbUuTien.getSelectedItem().toString();
             String cmtnd = txtCmntd.getText();
             checkInputInfo(id, hoTen, cbbNgaySinh, cbbThangSinh, cbbNamSinh, cmtnd, diaChi, soDienThoai, email);
-            if(!"".equals(cmtnd)){
-            if (BUS.ThiSinhBUS.getAThiSinh(cmtnd) != null) {
-                eror4.setVisible(true);
-            } else {
-                eror4.setVisible(false);
-            }
+            if (!"".equals(cmtnd)) {
+                if (BUS.ThiSinhBUS.getAThiSinh(cmtnd) != null) {
+                    eror4.setVisible(true);
+                } else {
+                    eror4.setVisible(false);
+                }
             }
             if (BUS.ThiSinhBUS.findById(id) != null) {
                 JOptionPane.showMessageDialog(this, "Thí Sinh Đã Tồn Tại!", "Thông Báo", JOptionPane.ERROR_MESSAGE);
@@ -839,6 +841,7 @@ public class HoSoPanel extends javax.swing.JPanel {
                     BUS.ThiSinhBUS.insertThiSinh(a);
                     BUS.ThiSinhBUS.getAllThiSinhs(tblHoSo);
                     clearBox();
+                    txtID.setText("");
                     JOptionPane.showMessageDialog(this, "Thêm Thí Sinh thành công!", "Thông Báo", JOptionPane.WARNING_MESSAGE);
                     stateForm = "DEFAULT";
                     btnAccept.setVisible(false);
@@ -848,7 +851,7 @@ public class HoSoPanel extends javax.swing.JPanel {
                     btnXoa.setVisible(true);
                     btnClear.setVisible(false);
                     enableComponent(false);
-                     tblHoSo.enable();
+                    tblHoSo.enable();
                 } catch (SQLException ex) {
                     Logger.getLogger(HoSoPanel.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -871,14 +874,14 @@ public class HoSoPanel extends javax.swing.JPanel {
             String cmtnd = txtCmntd.getText();
             checkInputInfo(id, hoTen, cbbNgaySinh, cbbThangSinh, cbbNgaySinh, cmtnd, diaChi, soDienThoai, email);
             ThiSinh ts = null;
-             if(!"".equals(cmtnd)){
-             ts = BUS.ThiSinhBUS.getAThiSinh(cmtnd) ;
-            if (ts != null && !id.equals(ts.getID())) {
-                eror4.setVisible(true);
-            } else {
-                eror4.setVisible(false);
+            if (!"".equals(cmtnd)) {
+                ts = BUS.ThiSinhBUS.getAThiSinh(cmtnd);
+                if (ts != null && !id.equals(ts.getID())) {
+                    eror4.setVisible(true);
+                } else {
+                    eror4.setVisible(false);
+                }
             }
-             }
             if (!(BUS.UtilityClass.hasSpecChar(id) || id.equals("")) && BUS.UtilityClass.validFullName(hoTen) && BUS.UtilityClass.validDate(cbbNgaySinh, cbbThangSinh, cbbNamSinh)
                     && !(BUS.UtilityClass.hasLetter(cmtnd) || BUS.UtilityClass.hasSpecChar(cmtnd) || cmtnd.length() == 0 || (ts != null && !id.equals(ts.getID()))) && !diaChi.equals("")
                     && BUS.UtilityClass.validNumberPhone(soDienThoai) && BUS.UtilityClass.validEmail(email)) {
@@ -896,7 +899,7 @@ public class HoSoPanel extends javax.swing.JPanel {
                     btnXoa.setVisible(true);
                     btnClear.setVisible(false);
                     enableComponent(false);
-                     tblHoSo.enable();
+                    tblHoSo.enable();
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(this, "Sửa thí sinh thất bại!", "Thông Báo", JOptionPane.ERROR_MESSAGE);
                     Logger.getLogger(HoSoPanel.class.getName()).log(Level.SEVERE, null, ex);
