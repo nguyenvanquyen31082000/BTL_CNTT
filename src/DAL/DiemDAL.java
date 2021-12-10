@@ -142,28 +142,7 @@ public class DiemDAL {
         return null;
     }
     
-    public static DiemThi findById(String id, String idMon, String query){
-        try (
-                Connection conn = DAL.getConnection();
-                CallableStatement pstmt = conn.prepareCall(query);
-        ){
-            pstmt.setString(1, id);
-            pstmt.setString(2, idMon);
-            ResultSet rs = pstmt.executeQuery();
-            if(rs.next()){
-                DiemThi a = new DiemThi();
-                a.setIdThiSinh(rs.getString("ID_ThiSinh"));
-                a.setIdMonHoc(rs.getString("ID_MonThi"));
-                a.setDiem(rs.getFloat("Diem"));
-                a.setCumThi(rs.getString("CumThi"));
-                a.setNamThi(rs.getString("NamThi"));
-                return a;
-            }
-        } catch (SQLException e){
-            e.printStackTrace();
-        }
-        return null;
-    }
+    
     
     public static ArrayList<BaoCaoDiemDto> searchDiemBaoCao(String id, String monthi, String namThi,String type, String query){
         ArrayList<BaoCaoDiemDto> li = new ArrayList<>();
