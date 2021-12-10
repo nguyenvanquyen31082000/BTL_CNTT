@@ -19,7 +19,20 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Audd
  */
-
+public class DiemBUS {
+    public static void getAllDiems(JTable jTable){
+        String query = "{ call get_all_diem()}";
+        String query1 = "{ call get_mon(?)}";
+        ArrayList<DiemThi> li = DAL.DiemDAL.getAllDiems(query);
+        DefaultTableModel model = (DefaultTableModel) jTable.getModel();
+        BUS.UtilityClass.clearRowJTable(jTable);
+        li.forEach((a) -> {
+            MonThi b = DAL.DiemDAL.getMonThi(a.getIdMonHoc(), query1);
+            model.addRow(new Object[]{
+                a.getIdThiSinh(), b.getTenMon(), a.getDiem(), a.getCumThi(), a.getNamThi()
+            });
+        });
+    }
     
     public static void insertDiem(DiemThi a){
          String query = "{ call insert_diem(?, ?, ?, ?, ?)}";
