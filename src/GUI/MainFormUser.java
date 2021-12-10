@@ -5,9 +5,11 @@
  */
 package GUI;
 
+import static GUI.MainFormAdmin.userLogin;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 /**
  *
@@ -430,7 +432,7 @@ public class MainFormUser extends javax.swing.JFrame {
         if (check == 0){
             check = 1;
             ImageIcon icon = new ImageIcon(getClass().getResource("/Image/icons8-account-16.png"));
-            mainTabPanel.addTab("Thông Tin Cá Nhân", icon, new ThongTinPanel(), "Thông Tin Cá Nhân");
+            mainTabPanel.addTab("Thông Tin Cá Nhân", icon,  new JScrollPane( new ThongTinPanel()), "Thông Tin Cá Nhân");
         }
     }//GEN-LAST:event_menuItem1MouseClicked
 
@@ -446,7 +448,7 @@ public class MainFormUser extends javax.swing.JFrame {
         if (check1 == 0){
             check1 = 1;
             ImageIcon icon = new ImageIcon(getClass().getResource("/Image/icons8-password-16.png"));
-            mainTabPanel.addTab("Đổi Mật Khẩu", icon, new MatKhauPanel(), "Đổi Mật Khẩu");
+            mainTabPanel.addTab("Đổi Mật Khẩu", icon,new JScrollPane( new MatKhauPanel()), "Đổi Mật Khẩu");
         }
     }//GEN-LAST:event_menuItem2MouseClicked
 
@@ -462,7 +464,7 @@ public class MainFormUser extends javax.swing.JFrame {
         if (check2 == 0){
             check2 = 1;
             ImageIcon icon = new ImageIcon(getClass().getResource("/Image/icons8-document-16.png"));
-            mainTabPanel.addTab("Xem Điểm", icon, new XemDiemPanel(), "Xem Điểm");
+            mainTabPanel.addTab("Xem Điểm", icon,new JScrollPane(new XemDiemPanel()) , "Xem Điểm");
         }
     }//GEN-LAST:event_menuItem3MouseClicked
 

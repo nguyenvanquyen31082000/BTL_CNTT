@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 /**
  *
@@ -411,7 +412,7 @@ public class MainFormAdmin extends javax.swing.JFrame {
         if (check == 0){
             check = 1;
             ImageIcon icon = new ImageIcon(getClass().getResource("/Image/icons8-document-16.png"));
-            mainTabPanel.addTab("Quản Lý Điểm", icon, new DiemPanel(), "Quản Lý Điểm");
+            mainTabPanel.addTab("Quản Lý Điểm", icon, new JScrollPane(new DiemPanel()), "Quản Lý Điểm");
         }
     }//GEN-LAST:event_menuItem1MouseClicked
 
@@ -428,7 +429,7 @@ public class MainFormAdmin extends javax.swing.JFrame {
             check1 = 1;
             ImageIcon icon = new ImageIcon(getClass().getResource("/Image/icons8-management-16.png"));
             try {
-                mainTabPanel.addTab("Quản Lý Hồ Sơ", icon, new HoSoPanel(), "Quản Lý Hồ Sơ");
+                mainTabPanel.addTab("Quản Lý Hồ Sơ", icon,  new JScrollPane(new HoSoPanel()), "Quản Lý Hồ Sơ");
             } catch (SQLException ex) {
                 Logger.getLogger(MainFormAdmin.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -448,7 +449,7 @@ public class MainFormAdmin extends javax.swing.JFrame {
             check2 = 1;
             ImageIcon icon = new ImageIcon(getClass().getResource("/Image/icons8-account-16.png"));
             try {
-                mainTabPanel.addTab("Quản Lý Tài Khoản", icon, new TaiKhoanPanel(), "Quản Lý Tài Khoản");
+                mainTabPanel.addTab("Quản Lý Tài Khoản", icon,  new JScrollPane(new TaiKhoanPanel()), "Quản Lý Tài Khoản");
             } catch (SQLException ex) {
                 Logger.getLogger(MainFormAdmin.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -523,7 +524,7 @@ public class MainFormAdmin extends javax.swing.JFrame {
             check3 = 1;
             ImageIcon icon = new ImageIcon(getClass().getResource("/Image/icons8-management-16.png"));
             try {
-                mainTabPanel.addTab("Báo cáo hồ sơ", icon, new BaoCaoHoSoPanel(userLogin), "Báo cáo Hồ Sơ");
+                mainTabPanel.addTab("Báo cáo hồ sơ", icon, new JScrollPane(new BaoCaoHoSoPanel(userLogin)), "Báo cáo Hồ Sơ");
             } catch (SQLException ex) {
                 Logger.getLogger(MainFormAdmin.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -543,7 +544,7 @@ public class MainFormAdmin extends javax.swing.JFrame {
             check4 = 1;
             ImageIcon icon = new ImageIcon(getClass().getResource("/Image/icons8-management-16.png"));
             try {
-                mainTabPanel.addTab("Thống kê điểm thí sinh", icon, new BaoCaoDiemPanel(userLogin), "Thống kê điểm thí sinh");
+                mainTabPanel.addTab("Thống kê điểm thí sinh", icon, new JScrollPane(new BaoCaoDiemPanel(userLogin)), "Thống kê điểm thí sinh");
             } catch (SQLException ex) {
                 Logger.getLogger(MainFormAdmin.class.getName()).log(Level.SEVERE, null, ex);
             }
